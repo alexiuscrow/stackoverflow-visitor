@@ -1,0 +1,31 @@
+* {
+    font-family: sans-serif;
+    color: #555353;
+    font-size: 1.05em;
+}
+
+body {
+    background-color: #f2f2f2;
+}
+
+main {
+    padding: 4px;
+    min-width: 140px;
+}
+
+main > div {
+    padding-bottom: 4px;
+}
+
+main > div:last-child {
+    padding-bottom: 0;
+}
+
+label {
+    color: #b2b2b2;
+    font-size: .8em;
+}
+
+#last-visited {
+    display: none;
+}

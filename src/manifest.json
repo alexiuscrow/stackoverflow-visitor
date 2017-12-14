@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Stackoverflow Visitor",
+  "short_name": "SOV",
+  "description": "Simple extension that visit Stack Overflow site once a day",
+  "version": "2017.2.0.0",
+  "minimum_chrome_version": "40.0",
+  "permissions": [
+    "tabs",
+    "alarms",
+    "storage",
+    "notifications"
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "24": "icons/icon24.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "background": {
+    "scripts": [
+      "js/3rd-party/moment.js",
+      "js/DailyVisitor.js",
+      "js/background.js"
+    ]
+  },
+  "browser_action": {
+    "default_title": "Stackoverflow Visitor",
+    "default_popup": "popup.html"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+  "author": "Oleksii Sapon"
+}

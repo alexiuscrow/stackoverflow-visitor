@@ -1,0 +1,37 @@
+* {
+    font-family: sans-serif;
+    font-size: 1.08em;
+}
+
+main {
+    padding: 4px;
+    width: 215px;
+    margin: 0 auto;
+}
+
+#timepicker {
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+#fire-time {
+    text-align: center;
+    width: 80px;
+    outline: none;
+    border: 0;
+    border-bottom: 1px solid orange;
+}
+
+#timepicker > a {
+    color: orange;
+    border: 0;
+    background: white;
+    text-decoration: none;
+    font-size: 1.3em;
+    padding: 0 5px;
+}
+
+label {
+    font-size: 1.15em;
+}
