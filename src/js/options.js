@@ -1,3 +1,9 @@
+/*!
+ * Licensed under the MIT license - http://opensource.org/licenses/MIT
+ * Copyright (c) 2017 Oleksii Sapon
+ * https://gitlab.int/asapon/stackoverflow-visitor
+ */
+
 $(document).ready(function () {
     console.log("Options initializing");
     const timeInput = $('#fire-time');

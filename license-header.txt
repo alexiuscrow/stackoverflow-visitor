@@ -1,0 +1,5 @@
+/*!
+ * Licensed under the ${license} license - http://opensource.org/licenses/${license}
+ * Copyright (c) ${year} ${author}
+ * ${webSite}
+ */
