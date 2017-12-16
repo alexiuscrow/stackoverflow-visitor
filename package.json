@@ -1,10 +1,10 @@
 {
   "name": "stackoverflow-visitor",
-  "version": "2017.3.0",
+  "version": "2017.2.1",
   "description": "Simple extension that visit Stack Overflow site once a day",
   "license": "MIT",
   "author": "Oleksii Sapon",
-  "homepage": "https://gitlab.int/asapon/stackoverflow-visitor#readme",
+  "homepage": "https://gitlab.int/asapon/stackoverflow-visitor",
   "devDependencies": {
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
