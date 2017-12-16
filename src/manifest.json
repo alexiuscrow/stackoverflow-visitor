@@ -33,5 +33,6 @@
     "page": "options.html",
     "chrome_style": true
   },
-  "author": "{{extension.author}}"
+  "author": "{{extension.author}}",
+  "homepage_url": "{{extension.homepage}}"
 }

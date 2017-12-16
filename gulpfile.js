@@ -24,6 +24,7 @@ gulp.task('injectData', function () {
             description: packageJson.description,
             version: packageJson.version,
             author: packageJson.author,
+            homepage: packageJson.homepage
         }
     };
     return gulp.src(['src/**'])

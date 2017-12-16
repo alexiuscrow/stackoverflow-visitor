@@ -1,6 +1,6 @@
 {
   "name": "stackoverflow-visitor",
-  "version": "2017.2.1",
+  "version": "2017.2.2",
   "description": "Simple extension that visit Stack Overflow site once a day",
   "license": "MIT",
   "author": "Oleksii Sapon",
