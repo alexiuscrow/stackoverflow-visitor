@@ -4,7 +4,7 @@
   "description": "Simple extension that visit Stack Overflow site once a day",
   "license": "MIT",
   "author": "Oleksii Sapon",
-  "homepage": "https://gitlab.int/asapon/stackoverflow-visitor",
+  "homepage": "https://github.com/alexiuscrow/stackoverflow-visitor",
   "devDependencies": {
     "fs": "0.0.1-security",
     "gulp": "^3.9.1",
@@ -14,6 +14,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://gitlab.int/asapon/stackoverflow-visitor.git"
+    "url": "https://github.com/alexiuscrow/stackoverflow-visitor.git"
   }
 }

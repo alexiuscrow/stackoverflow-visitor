@@ -1,7 +1,7 @@
 /*!
  * Licensed under the MIT license - http://opensource.org/licenses/MIT
  * Copyright (c) 2017 Oleksii Sapon
- * https://gitlab.int/asapon/stackoverflow-visitor
+ * https://github.com/alexiuscrow/stackoverflow-visitor
  */
 
 $(document).ready(function () {
