@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Stackoverflow Visitor",
   "short_name": "SOV",
-  "description": "Simple extension that visit Stack Overflow site once a day",
-  "version": "2017.2.0.0",
+  "description": "{{extension.description}}",
+  "version": "{{extension.version}}",
   "minimum_chrome_version": "40.0",
   "permissions": [
     "tabs",
@@ -33,5 +33,5 @@
     "page": "options.html",
     "chrome_style": true
   },
-  "author": "Oleksii Sapon"
+  "author": "{{extension.author}}"
 }
