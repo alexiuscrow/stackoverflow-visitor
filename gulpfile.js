@@ -13,7 +13,7 @@ gulp.task('license', function () {
         license: packageJson.license
     };
 
-    gulp.src(['src/**/*.js', 'src/**/*.css', '!src/**/3rd-party/**'])
+    return gulp.src(['src/**/*.js', 'src/**/*.css', '!src/**/3rd-party/**'])
         .pipe(license(fs.readFileSync('license-header.txt', 'utf8'), headerProperties))
         .pipe(gulp.dest('src'));
 });
@@ -27,17 +27,16 @@ gulp.task('dataInject', function () {
             homepage: packageJson.homepage
         }
     };
-    gulp.src(['src/**', '!src/**/*.png'])
+    gulp.src(['src/**/*.png'])
+        .pipe(gulp.dest('build/dataInject'))
+
+    return gulp.src(['src/**', '!src/**/*.png'])
         .pipe(replace({tokens : properties}))
         .pipe(gulp.dest('build/dataInject'))
-
-    return gulp.src(['src/**/*.png'])
-        .pipe(gulp.dest('build/dataInject'))
-
 });
 
 gulp.task('zip', ['dataInject'], function () {
-    gulp.src('build/dataInject/**')
+    return gulp.src('build/dataInject/**')
         .pipe(zip('stackoverflow-visitor-' + packageJson.version + '.zip'))
         .pipe(gulp.dest('build/dist'))
 });
