@@ -18,7 +18,7 @@ gulp.task('license', function () {
         .pipe(gulp.dest('src'));
 });
 
-gulp.task('injectData', function () {
+gulp.task('dataInject', function () {
     const properties = {
         extension: {
             description: packageJson.description,
@@ -27,13 +27,17 @@ gulp.task('injectData', function () {
             homepage: packageJson.homepage
         }
     };
-    return gulp.src(['src/**'])
+    gulp.src(['src/**', '!src/**/*.png'])
         .pipe(replace({tokens : properties}))
-        .pipe(gulp.dest('build/injectData'))
+        .pipe(gulp.dest('build/dataInject'))
+
+    return gulp.src(['src/**/*.png'])
+        .pipe(gulp.dest('build/dataInject'))
+
 });
 
-gulp.task('zip', ['injectData'], function () {
-    gulp.src('build/injectData/**')
+gulp.task('zip', ['dataInject'], function () {
+    gulp.src('build/dataInject/**')
         .pipe(zip('stackoverflow-visitor-' + packageJson.version + '.zip'))
         .pipe(gulp.dest('build/dist'))
 });
