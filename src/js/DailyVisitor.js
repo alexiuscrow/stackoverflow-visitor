@@ -17,12 +17,10 @@ class DailyVisitor {
     }
 
     initAlarm() {
-        const dailyVisitorObj = this;
         chrome.storage.sync.get({
             nextFire: (moment().add(2, 'm').seconds(0).milliseconds(0).valueOf())
         }, function (items) {
             var nextFireTimeMoment = moment(items.nextFire, "x");
-            console.log(nextFireTimeMoment.format() + " - " + nextFireTimeMoment.valueOf());
             var nextFireTimeMillis;
 
             if (moment().isBefore(nextFireTimeMoment))
@@ -30,18 +28,19 @@ class DailyVisitor {
             else
                 nextFireTimeMillis = nextFireTimeMoment.add(1, "day").valueOf();
 
-            chrome.alarms.create(dailyVisitorObj.alarmName, {
+            console.log(nextFireTimeMoment.format() + " - " + nextFireTimeMoment.valueOf());
+
+            chrome.alarms.create(this.alarmName, {
                 when: nextFireTimeMillis
             });
 
             chrome.storage.sync.set({
                 nextFire: nextFireTimeMillis
             });
-        });
+        }.bind(this));
     }
 
     visitSite() {
-        const dailyVisitorObj = this;
         chrome.tabs.query({
             url: this.url,
             index: 0
@@ -52,25 +51,24 @@ class DailyVisitor {
                     index: 0,
                     active: false
                 });
-                dailyVisitorObj.tabWasCreated = true;
+                this.tabWasCreated = true;
             } else {
                 chrome.tabs.reload(tabs[0].id);
             }
-        });
+        }.bind(this));
     }
 
     addAlarmListener() {
-        const dailyVisitorObj = this;
         chrome.alarms.onAlarm.addListener(function (alarm) {
-            if (alarm.name === dailyVisitorObj.alarmName) {
-                dailyVisitorObj.visitSite();
-                dailyVisitorObj.initAlarm();
+            console.log('this.alarmName ' + this.alarmName);
+            if (alarm.name === this.alarmName) {
+                this.visitSite();
+                this.initAlarm();
             }
-        });
+        }.bind(this));
     }
 
     addVisitListener() {
-        const dailyVisitorObj = this;
         chrome.tabs.onUpdated.addListener(function (tabId, changeInfo, tab) {
             if (tab.url.indexOf(url) !== -1 && changeInfo.status === 'complete' && tab.index === 0) {
                 const date = new Date();
@@ -83,13 +81,15 @@ class DailyVisitor {
                     requireInteraction: true
                 });
 
-                if (dailyVisitorObj.tabWasCreated)
+                console.log('this.tabWasCreated ' + this.tabWasCreated);
+
+                if (this.tabWasCreated)
                     chrome.tabs.remove(tabId);
 
                 chrome.storage.sync.set({
                     'lastFire': moment(date).valueOf()
                 });
             }
-        });
+        }.bind(this));
     }
 }
