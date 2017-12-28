@@ -47,7 +47,7 @@ gulp.task('assemble', ['dataInject'], function () {
 });
 
 gulp.task('zip', ['assemble'], function () {
-    return gulp.src('build/dist/' + packageJson.name + '-' + packageJson.version)
+    return gulp.src('build/dist/' + packageJson.name + '-' + packageJson.version + '/**')
         .pipe(zip(packageJson.name + '-' + packageJson.version + '.zip'))
         .pipe(gulp.dest('build/dist'))
 });
